@@ -150,8 +150,24 @@ avg = sum/size;
 
 }
 
+//defination of getmin(); function
+
 int getMin(const int *arr, int size) {
-  //TODO: implement
+  
+int min=arr[0];
+
+for(int i=1;i<size;i++){
+
+if(arr[i]<min){
+
+min=arr[i];
+  
+}
+
+}
+
+return min;
+
 }
 
 int getIndexOfMin(const int *arr, int size) {

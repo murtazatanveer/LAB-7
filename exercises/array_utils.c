@@ -38,11 +38,11 @@ scanf("%d",&array[i]);
 
 //testing getmean(); function
 
-double Mean = getMean(array,size);
+printf("\nMean of given array is : %.2lf",getMean(array,size));
 
-printf("\nMean of given array is : %.2lf",Mean);
+//testing getmean(); function
 
-
+printf("\n\nMinimum element of array is : %d",getMin(array,size));
 
   return 0;
 
