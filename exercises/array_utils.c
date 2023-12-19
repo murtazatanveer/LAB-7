@@ -44,8 +44,15 @@ printf("\nMean of given array is : %.2lf",getMean(array,size));
 
 printf("\n\nMinimum element of array is : %d",getMin(array,size));
 
+//testing getIndexOfMin(); function
+
 printf("\n\nIndex of minimum element of given array is : %d",getIndexOfMin(array,size));
 
+//testing getMax(); function
+
+printf("\n\nMaximum element of array is : %d",getMax(array,size));
+
+//testing getIndexOfMax(); function
   return 0;
 
 }

@@ -201,7 +201,21 @@ return i;
 }
 
 int getMax(const int *arr, int size) {
-  //TODO: implement
+
+int max=arr[0];
+
+for(int i=1;i<size;i++){
+
+if (max<arr[i]){
+
+max=arr[i];
+  
+}
+
+}
+
+return max;
+
 }
 
 int getIndexOfMax(const int *arr, int size) {
