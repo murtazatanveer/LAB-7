@@ -44,6 +44,8 @@ printf("\nMean of given array is : %.2lf",getMean(array,size));
 
 printf("\n\nMinimum element of array is : %d",getMin(array,size));
 
+printf("\n\nIndex of minimum element of given array is : %d",getIndexOfMin(array,size));
+
   return 0;
 
 }
