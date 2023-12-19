@@ -100,11 +100,11 @@ int * generateRandomArray(int size) {
   if(size < 0) {
     return NULL;
   }
-  int randomArr[size];
+  int* randomArr = (int*) malloc(4*size);
   for(int i=0; i<size; i++) {
     randomArr[i] = rand() % 100;
   }
-  //return randomArr;
+  return randomArr;
 }
 
 int getSum(int *arr, int size) {
@@ -114,7 +114,7 @@ int getSum(int *arr, int size) {
   int total = 0;
   for(int i=0; i<size; i++) {
     total += arr[i];
-    arr[i] = 0;
+    
   }
   return total;
 }
@@ -129,7 +129,7 @@ void freeTable(int **table, int n) {
   free(table);
 }
 
-// defination of  getMean() function;
+// defination of  getMean(); function;
 
 double getMean(const int *arr, int size) {
 
