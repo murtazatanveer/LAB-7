@@ -249,8 +249,46 @@ return i;
 
 }
 
+
+//defination of fiterThreshold(); function
+
 int * filterThreshold(const int *arr, int size, int threshold, int *resultSize) {
-  //TODO: implement
+
+int count=0;
+
+for(int i=0;i<size;i++){
+
+if(arr[i] >= threshold){
+
+count++;
+
+}
+}
+int *dyn_arr = (int*) malloc(4*count); 
+
+*resultSize = count;
+
+int index=0;
+
+if(dyn_arr==NULL){
+
+  printf("\nMemory Allocation Error\n");
+  exit(1);
+
+}
+
+for (int i = 0; i < size; i++)
+{
+  if(arr[i] >= threshold) {
+
+dyn_arr[index]=arr[i];
+
+index++;
+
+  }
+
+}
+return dyn_arr;  
 }
 
 int **createMultiplicationTable(int n, int m) {
