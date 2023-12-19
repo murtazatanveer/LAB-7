@@ -53,6 +53,9 @@ printf("\n\nIndex of minimum element of given array is : %d",getIndexOfMin(array
 printf("\n\nMaximum element of array is : %d",getMax(array,size));
 
 //testing getIndexOfMax(); function
+
+printf("\n\nIndex of maximum element of given array is : %d",getIndexOfMax(array,size));
+
   return 0;
 
 }

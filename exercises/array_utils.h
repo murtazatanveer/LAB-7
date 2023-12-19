@@ -200,6 +200,9 @@ return i;
  
 }
 
+//defination of getMax(); function
+
+
 int getMax(const int *arr, int size) {
 
 int max=arr[0];
@@ -218,10 +221,32 @@ return max;
 
 }
 
-int getIndexOfMax(const int *arr, int size) {
-  
+//defination of getindexofMax(); function
 
+
+int getIndexOfMax(const int *arr, int size) {
+
+ int max=arr[0];
+
+for(int i=1;i<size;i++){
+
+if (max<arr[i]){
+
+max=arr[i];
   
+}
+}
+
+for(int i=0;i<size;i++){
+
+if(max==arr[i]){
+
+return i;
+
+}
+
+} 
+
 }
 
 int * filterThreshold(const int *arr, int size, int threshold, int *resultSize) {
