@@ -3,81 +3,225 @@
 
 #include "array_utils.h"
 
-int main(int argc, char **argv) {
+void printArray(const int *arr, int n) {
+  if(arr == NULL) {
+    printf("[null]\n");
+    return;
+  }
+  printf("[ ");
+  for(int i=0; i<n-1; i++) {
+    printf("%d, ", arr[i]);
+  }
+  printf("%d ]\n", arr[n-1]);
+  return;
+}
 
+void printTable(int **table, int n, int m) {
+  if(table == NULL) {
+    printf("[null]\n");
+    return;
+  }
+  for(int i=0; i<n; i++) {
+    printArray(table[i], m);
+  }
+  return;
+}
 
-  //seed the random number generator with the current time
-  //srand(time(NULL));
+int * generateRandomArray(int size) {
+  if(size < 0) {
+    return NULL;
+  }
+  int* randomArr = (int*) malloc(4*size);
+  for(int i=0; i<size; i++) {
+    randomArr[i] = rand() % 100;
+  }
+  return randomArr;
+}
 
+int getSum(int *arr, int size) {
+  if(arr == NULL) {
+    return 0;
+  }
+  int total = 0;
+  for(int i=0; i<size; i++) {
+    total += arr[i];
+    
+  }
+  return total;
+}
 
-  int n = 10;
-  int *arr = generateRandomArray(n);
-  printArray(arr, n);
+void freeTable(int **table, int n) {
+  if(table == NULL) {
+    return;
+  }
+  for(int i=0; i<n; i++) {
+    free(table[i]);
+  }
+  free(table);
+}
 
-  int sum = getSum(arr, n);
-  printf("sum of elements = %d\n", sum);
-  printArray(arr, n);
+// defination of  getMean(); function;
 
-  free(arr);
+double getMean(const int *arr, int size) {
 
+double avg;
 
-int size;
-printf("\nEnter Size of your array : ");
-scanf("%d",&size);
+int sum=0;
 
-int array[size];
+  for(int i=0;i<size;i++){
 
-printf("\nEnter elements of your array with wide spaces : ");
+sum=sum+ *arr;
+arr++;
+
+  }
+
+avg = sum/size;
+
+  return avg;
+
+}
+
+//defination of getmin(); function
+
+int getMin(const int *arr, int size) {
+  
+int min=arr[0];
+
+for(int i=1;i<size;i++){
+
+if(arr[i]<min){
+
+min=arr[i];
+
+  
+}
+
+}
+
+return min;
+
+}
+
+//defination of getindexofMin(); function
+
+int getIndexOfMin(const int *arr, int size) {
+
+int min=arr[0];
+
+for(int i=1;i<size;i++){
+
+if(arr[i]<min){
+
+min=arr[i];
+ 
+}
+
+}
 
 for(int i=0;i<size;i++){
 
-scanf("%d",&array[i]);
+if(min==arr[i]){
+
+return i;
 
 }
 
 
-//testing getmean(); function
+}
+ 
+}
 
-printf("\nMean of given array is : %.2lf",getMean(array,size));
-
-//testing getmean(); function
-
-printf("\n\nMinimum element of array is : %d",getMin(array,size));
-
-//testing getIndexOfMin(); function
-
-printf("\n\nIndex of minimum element of given array is : %d",getIndexOfMin(array,size));
-
-//testing getMax(); function
-
-printf("\n\nMaximum element of array is : %d",getMax(array,size));
-
-//testing getIndexOfMax(); function
-
-printf("\n\nIndex of maximum element of given array is : %d",getIndexOfMax(array,size));
+//defination of getMax(); function
 
 
-//testing fiterThreshold(); function
+int getMax(const int *arr, int size) {
 
-int threshold;
+int max=arr[0];
 
-printf("\n\nEnter Value for threshold : ");
-scanf("%d",&threshold);
+for(int i=1;i<size;i++){
 
-int res_size;
+if (max<arr[i]){
 
-int *ptr = filterThreshold(array , size , threshold , &res_size); 
-
-printf("\nResult size is %d and elements greator or equal than %d are : ",res_size,threshold);
-
-for(int i=0;i<res_size;i++){
-
-printf("%d ",ptr[i]);
+max=arr[i];
+  
+}
 
 }
 
-  return 0;
+return max;
+
+}
+
+//defination of getindexofMax(); function
+
+
+int getIndexOfMax(const int *arr, int size) {
+
+ int max=arr[0];
+
+for(int i=1;i<size;i++){
+
+if (max<arr[i]){
+
+max=arr[i];
+  
+}
+}
+
+for(int i=0;i<size;i++){
+
+if(max==arr[i]){
+
+return i;
+
+}
+
+} 
 
 }
 
 
+//defination of fiterThreshold(); function
+
+int * filterThreshold(const int *arr, int size, int threshold, int *resultSize) {
+
+int count=0;
+
+for(int i=0;i<size;i++){
+
+if(arr[i] >= threshold){
+
+count++;
+
+}
+}
+int *dyn_arr = (int*) malloc(4*count); 
+
+*resultSize = count;
+
+int index=0;
+
+if(dyn_arr==NULL){
+
+  printf("\nMemory Allocation Error\n");
+  exit(1);
+
+}
+
+for (int i = 0; i < size; i++)
+{
+  if(arr[i] >= threshold) {
+
+dyn_arr[index]=arr[i];
+
+index++;
+
+  }
+
+}
+return dyn_arr;  
+}
+
+int **createMultiplicationTable(int n, int m) {
+  //TODO: implement
+}
