@@ -77,6 +77,24 @@ printf("%d ",ptr[i]);
 
 }
 
+printf("\n\n");
+
+int n=3;
+int m=5;
+
+int **d_ptr = createMultiplicationTable(n,m);
+
+for (int i = 0; i < 3; i++){
+printf("[ ");
+for(int j=0;j<5;j++){
+
+printf(" %d ",d_ptr[i][j]);
+
+}
+printf(" ]\n");
+}
+
+
   return 0;
 
 }

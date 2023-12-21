@@ -222,6 +222,29 @@ index++;
 return dyn_arr;  
 }
 
+//defination of createMultiplicationTable(); function
+
 int **createMultiplicationTable(int n, int m) {
-  //TODO: implement
+  
+int **pointer_arr = (int**) malloc(n*sizeof(int*));
+
+for(int i=0;i<n;i++){
+
+pointer_arr[i] = (int*) malloc(4*m);
+
+}
+
+for(int i=0;i<n;i++){
+
+for (int j = 0; j < m ; j++)
+{
+  pointer_arr[i][j] = (i+1) * (j+1);
+
+}
+
+
+}
+
+return pointer_arr;
+
 }
